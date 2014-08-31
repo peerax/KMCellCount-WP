@@ -1,0 +1,69 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="KMCellCount.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#FF6C483A">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,49">
+            <TextBlock Text="KMCellCount-cell count" Style="{StaticResource PhoneTextNormalStyle}" Margin="92,0,12,0" FontSize="26"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Margin="0,77,0,0" Grid.RowSpan="2" Background="#FFE2D9D0">
+            <TextBox x:Name="txtDil" HorizontalAlignment="Left" Height="72" Margin="0,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" InputScope="Number"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Dilution" VerticalAlignment="Top" Foreground="#FF6C483A"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,172,0,0" TextWrapping="Wrap" Text="Count fields" VerticalAlignment="Top" Foreground="#FF6C483A"/>
+            <TextBox x:Name="txtField" HorizontalAlignment="Left" Height="72" Margin="0,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" InputScope="Number"/>
+            <Button x:Name="btnCalcFin" Content="Calc" Margin="168,292,168,0" VerticalAlignment="Top" Click="CalFin" Background="#FFF2EDE6" Foreground="#FF6C483A"/>
+            <Button x:Name="btnReset" Content="Reset" VerticalAlignment="Bottom" Height="91" HorizontalAlignment="Right" Width="145" Margin="0,0,10,10" Click="btnReset_Click" Foreground="#FF6C483A" Background="#FFF2EDE6"/>
+            <Button x:Name="btnCalc" Content="Calc" HorizontalAlignment="Left" Margin="10,0,0,10" Height="91" VerticalAlignment="Bottom" Width="145" Click="btnCalc_Click" Foreground="#FF6C483A" Background="#FFF2EDE6"/>
+            <Button x:Name="btnCount" Content="Press to count" HorizontalAlignment="Left" Margin="-4,10,0,0" VerticalAlignment="Top" Height="404" Width="484" Background="#FF6C483A" Click="btnCount_Click" FontSize="36" Foreground="#FFF2EDE6"/>
+        </Grid>
+        <Image HorizontalAlignment="Left" Margin="12,0,0,0" Width="75" Source="/Resources/ic_launcher72.png" Height="72" VerticalAlignment="Top"/>
+        <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup">
+            <Border BorderThickness="2" Width="460" Height="404" RenderTransformOrigin="0.5,0.5" BorderBrush="#FF6C483A">
+                <Border.Background>
+                    <SolidColorBrush Color="#FFE2D9D0"/>
+                </Border.Background>
+                <Border.RenderTransform>
+                    <CompositeTransform TranslateX="-190" TranslateY="89"/>
+                </Border.RenderTransform>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Select Dimension" FontSize="24" HorizontalAlignment="Center" RenderTransformOrigin="0.49,0.348" Width="190" Foreground="#FF6C483A" >
+                        <TextBlock.RenderTransform>
+                            <CompositeTransform TranslateY="-43"/>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                    <Button Content="1.0x1.0 mm" Click="ClosePopupClicked" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Width="240" Height="118" Background="#FFF2EDE6" Foreground="#FF6C483A" >
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateY="-2"/>
+                        </Button.RenderTransform>
+                    </Button>
+                    <Button Content="0.2x0.2 mm" Click="ClosePopup2Clicked" HorizontalAlignment="Center" RenderTransformOrigin="0.47,0.448" Width="247" Height="116" Background="#FFF2EDE6" Foreground="#FF6C483A" >
+                        <Button.RenderTransform>
+                            <CompositeTransform TranslateY="8"/>
+                        </Button.RenderTransform>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Popup>
+    </Grid>
+
+</phone:PhoneApplicationPage>
